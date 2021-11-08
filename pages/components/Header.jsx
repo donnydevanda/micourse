@@ -27,7 +27,7 @@ export default function Header({ onLight }) {
             <a
               className={[
                 linkColor,
-                "text-white hover:text-teal-500 text-lg px-6 py-3 font-medium",
+                "text-white hover:text-teal-500 text-lg px-6 py-3",
               ].join(" ")}
             >
               Home
@@ -39,7 +39,7 @@ export default function Header({ onLight }) {
             <a
               className={[
                 linkColor,
-                "text-white hover:text-teal-500 text-lg px-6 py-3 font-medium",
+                "text-white hover:text-teal-500 text-lg px-6 py-3",
               ].join(" ")}
             >
               Pricing
@@ -51,7 +51,7 @@ export default function Header({ onLight }) {
             <a
               className={[
                 linkColor,
-                "text-white hover:text-teal-500 text-lg px-6 py-3 font-medium",
+                "text-white hover:text-teal-500 text-lg px-6 py-3",
               ].join(" ")}
             >
               Features
@@ -63,7 +63,7 @@ export default function Header({ onLight }) {
             <a
               className={[
                 linkColor,
-                "text-white hover:text-teal-500 text-lg px-6 py-3 font-medium",
+                "text-white hover:text-teal-500 text-lg px-6 py-3",
               ].join(" ")}
             >
               Story
