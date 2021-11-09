@@ -5,6 +5,7 @@ import Header from "./components/Header";
 import Hero from "./components/Hero";
 import Clients from "./components/Clients";
 import ListCourses from "./components/ListCourses";
+import ListCategories from "./components/ListCategories";
 
 function Home({ data }) {
   return (
@@ -26,6 +27,10 @@ function Home({ data }) {
         <section className="container mx-auto pt-24">
           <ListCourses data={data} />
         </section>
+        <section className="container mx-auto pt-24">
+          <ListCategories />
+        </section>
+        <section className="container mx-auto py-24"></section>
       </main>
     </>
   );
