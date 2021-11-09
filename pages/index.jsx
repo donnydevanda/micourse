@@ -16,24 +16,14 @@ function Home({ data }) {
       </Head>
       <main>
         <section className="header-clipping pt-10 min-h-screen md:min-h-0">
-          <div className="sunshine max-w-full"></div>
-          <div className="container mx-auto">
-            <Header />
-            <Hero />
-          </div>
+          <div className="sunshine max-w-full" />
+          <Header />
+          <Hero />
         </section>
-        <section className="container mx-auto pt-24">
-          <Clients />
-        </section>
-        <section className="container mx-auto pt-24">
-          <ListCourses data={data} />
-        </section>
-        <section className="container mx-auto pt-24">
-          <ListCategories />
-        </section>
-        <section className="mt-24 bg-indigo-900 py-12">
-          <Footer />
-        </section>
+        <Clients />
+        <ListCourses data={data} />
+        <ListCategories />
+        <Footer />
       </main>
     </>
   );

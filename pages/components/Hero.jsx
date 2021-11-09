@@ -1,60 +1,40 @@
-import { useState } from "react";
-
 import Image from "next/image";
+
+import FormEmail from "./FormEmail";
 
 import imgHero from "../../public/images/img-hero.jpg";
 
 export default function Hero() {
-  const [state, setState] = useState(() => "");
-
-  function submit() {
-    window.open(
-      `${process.env.NEXT_PUBLIC_MEMBER_PAGE_URL}/register?email=${state}`
-    );
-  }
-
   return (
-    <div className="flex justify-between items-center">
+    <div className="container mx-auto flex items-center">
       <div className="w-1/2">
-        <h1 className="text-5xl text-white font-semibold mb-5">
+        <h1 className="text-5xl text-white font-semibold mb-5 leading-normal">
           <span className="text-blue-300">The New</span> Way to
           <br />
-          Achieve Good <span className="text-blue-300">Skills.</span>
+          Achieve Your <span className="text-blue-300">Dreams.</span>
         </h1>
         <p className="text-white font-light text-lg mb-8">
-          We provide tons of pathskill that can you choose and focus on
+          We provide the best courses to help you achieve your dreams.
         </p>
-        <form onSubmit={submit}>
-          <input
-            type="email"
-            onChange={(event) => setState(event.target.value)}
-            className="bg-white focus:outline-none border-0 px-6 py-3 w-1/2"
-            placeholder="Your Email Address"
-          />
-          <button
-            className="bg-yellow-600 hover:bg-yellow-500 transition-all duration-200 
-          focus:outline-none shadow-inner text-white px-6 py-3"
-          >
-            Register
-          </button>
-        </form>
+        <FormEmail />
       </div>
-
       <div className="w-1/2 flex justify-end pt-24 pr-16">
         <div className="relative" style={{ width: 369, height: 440 }}>
           <div
             className="absolute border-indigo-700 border-2 -mt-12 -mr-6 right-0"
             style={{ width: 324, height: 374 }}
-          ></div>
+          />
           <div className="absolute w-full h-full -mb-8 -ml-8">
-            <Image src={imgHero} alt="ImageHero"></Image>
+            <Image src={imgHero} alt="ImageHero" />
           </div>
           <div
             className="absolute z-10 bg-white py-3 px-4 mt-24"
             style={{ transform: "translateX(-50%)", width: 290 }}
           >
-            <p className="text-gray-900 mb-2">Stressless learning, so fun!</p>
-            <span className="text-gray-600">Alyssa, App Developer</span>
+            <p className="text-gray-900 text-base">
+              Learning has never been so fun!
+            </p>
+            <p className="text-gray-600 text-sm">Anna, Web Developer.</p>
           </div>
         </div>
       </div>

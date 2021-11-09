@@ -1,47 +1,39 @@
 import { useState } from "react";
-
 import Link from "next/Link";
+import FormEmail from "./FormEmail";
 
 export default function Footer() {
-  const [state, setState] = useState(() => "");
-
-  function submit() {
-    window.open(
-      `${process.env.NEXT_PUBLIC_MEMBER_PAGE_URL}/register?email=${state}`
-    );
-  }
-
   return (
-    <footer className="container mx-auto">
-      <div className="flex justify-between">
+    <footer className=" bg-indigo-900 mt-24 py-12">
+      <div className="container mx-auto flex justify-between">
         <div className="w-1/6">
           <h6 className="text-white">Company</h6>
           <ul className="mt-4">
             <li className="mt-2">
               <Link href="#">
-                <a className="text-gray-400 hover:text-teal-500 hover:underline">
-                  Api Developer
+                <a className="text-gray-400 hover:text-indigo-500 hover:underline">
+                  API References
                 </a>
               </Link>
             </li>
             <li className="mt-2">
               <Link href="#">
-                <a className="text-gray-400 hover:text-teal-500 hover:underline">
-                  Career
+                <a className="text-gray-400 hover:text-indigo-500 hover:underline">
+                  Career & Support
                 </a>
               </Link>
             </li>
             <li className="mt-2">
               <Link href="#">
-                <a className="text-gray-400 hover:text-teal-500 hover:underline">
-                  Our Story
+                <a className="text-gray-400 hover:text-indigo-500 hover:underline">
+                  Story
                 </a>
               </Link>
             </li>
             <li className="mt-2">
               <Link href="#">
-                <a className="text-gray-400 hover:text-teal-500 hover:underline">
-                  New Soon
+                <a className="text-gray-400 hover:text-indigo-500 hover:underline">
+                  Blog
                 </a>
               </Link>
             </li>
@@ -52,28 +44,28 @@ export default function Footer() {
           <ul className="mt-4">
             <li className="mt-2">
               <Link href="#">
-                <a className="text-gray-400 hover:text-teal-500 hover:underline">
-                  Get Scholarship
+                <a className="text-gray-400 hover:text-indigo-500 hover:underline">
+                  Scholarship
                 </a>
               </Link>
             </li>
             <li className="mt-2">
               <Link href="#">
-                <a className="text-gray-400 hover:text-teal-500 hover:underline">
-                  Path Skills
+                <a className="text-gray-400 hover:text-indigo-500 hover:underline">
+                  Skills Path
                 </a>
               </Link>
             </li>
             <li className="mt-2">
               <Link href="#">
-                <a className="text-gray-400 hover:text-teal-500 hover:underline">
+                <a className="text-gray-400 hover:text-indigo-500 hover:underline">
                   Features
                 </a>
               </Link>
             </li>
             <li className="mt-2">
               <Link href="#">
-                <a className="text-gray-400 hover:text-teal-500 hover:underline">
+                <a className="text-gray-400 hover:text-indigo-500 hover:underline">
                   Refund Policy
                 </a>
               </Link>
@@ -81,37 +73,24 @@ export default function Footer() {
           </ul>
         </div>
         <div className="w-1/6">
-          <h6 className="text-white">Touch Us</h6>
+          <h6 className="text-white">Our Address</h6>
           <p className="mt-4 text-gray-400 leading-loose">
-            Micro Center <br />
-            Alleysi Block X No.12 <br />
+            Micourse HQ <br />
+            Jovalley Block X No.8 <br />
             South Jakarta, Indonesia <br />
             12630
           </p>
         </div>
         <div className="w-2/6">
           <h6 className="text-white">Touch Us</h6>
-          <p className="mt-4 text-gray-400">
+          <p className="my-2 text-gray-400">
             Submit your email for special offers
           </p>
-          <form onSubmit={submit}>
-            <input
-              type="email"
-              onChange={(event) => setState(event.target.value)}
-              className="bg-white focus:outline-none border-0 px-6 py-3 w-1/2"
-              placeholder="Your Email Address"
-            />
-            <button
-              className="bg-yellow-600 hover:bg-yellow-500 transition-all duration-200 
-          focus:outline-none shadow-inner text-white px-6 py-3"
-            >
-              Register
-            </button>
-          </form>
+          <FormEmail />
         </div>
       </div>
-      <div className="border-t pt-8 mt-8 border-gray-800 text-center">
-        <p className="text-gray-400">2021 Micourse. All Right Reserved.</p>
+      <div className="border-t pt-8 mt-8 border-gray-800 text-center text-lg">
+        <p className="text-gray-400">Micourse • All Right Reserved • 2021</p>
       </div>
     </footer>
   );

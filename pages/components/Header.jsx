@@ -1,8 +1,8 @@
-import Logo from "../../public/images/logo.svg";
-
-import { useRouter } from "next/router";
 import Link from "next/Link";
 import Image from "next/image";
+import { useRouter } from "next/router";
+
+import Logo from "../../public/images/logo.svg";
 
 export default function Header({ onLight }) {
   const linkColor = onLight ? "text-gray-900" : "text-white";
@@ -17,56 +17,57 @@ export default function Header({ onLight }) {
   const textCTA = router.pathname.indexOf("/login") > -1 ? "Register" : "Login";
 
   return (
-    <header className="flex justify-between items-center">
-      <div style={{ height: 54 }}>
-        <Image src={Logo}></Image>
-      </div>
+    <header className="container mx-auto flex justify-between items-center">
+      <Image src={Logo} />
       <ul className="flex">
-        <li className="my-4 md:my-0">
-          <Link href="/">
+        <li className="md:my-0">
+          <Link
+            href="/"
+            className="text-white hover:text-blue-500 text-lg px-6 py-3"
+          >
             <a
               className={[
                 linkColor,
-                "text-white hover:text-teal-500 text-lg px-6 py-3",
+                "text-white hover:text-blue-500 text-lg px-6 py-3",
               ].join(" ")}
             >
               Home
             </a>
           </Link>
         </li>
-        <li className="my-4 md:my-0">
+        <li className="md:my-0">
           <Link href="/">
             <a
               className={[
                 linkColor,
-                "text-white hover:text-teal-500 text-lg px-6 py-3",
+                "text-white hover:text-blue-500 text-lg px-6 py-3",
               ].join(" ")}
             >
-              Pricing
+              Explore
             </a>
           </Link>
         </li>
-        <li className="my-4 md:my-0">
+        <li className="md:my-0">
           <Link href="/">
             <a
               className={[
                 linkColor,
-                "text-white hover:text-teal-500 text-lg px-6 py-3",
+                "text-white hover:text-blue-500 text-lg px-6 py-3",
               ].join(" ")}
             >
               Features
             </a>
           </Link>
         </li>
-        <li className="my-4 md:my-0">
+        <li className="md:my-0">
           <Link href="/">
             <a
               className={[
                 linkColor,
-                "text-white hover:text-teal-500 text-lg px-6 py-3",
+                "text-white hover:text-blue-500 text-lg px-6 py-3",
               ].join(" ")}
             >
-              Story
+              Blog
             </a>
           </Link>
         </li>
@@ -75,8 +76,8 @@ export default function Header({ onLight }) {
             target="_blank"
             rel="noopener noreferrer"
             href={linkCTA}
-            className="bg-indigo-700 hover:bg-indigo-800 transition-all duration-200 text-white 
-            hover:text-teal-500 text-lg px-6 py-3 ml-6"
+            className="bg-indigo-700 hover:bg-indigo-900 transition-all duration-200 text-white 
+            hover:text-blue-500 text-lg px-6 py-3 ml-6"
           >
             {textCTA}
           </a>

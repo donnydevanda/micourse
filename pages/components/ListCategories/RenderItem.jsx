@@ -1,6 +1,5 @@
 import Link from "next/Link";
 import Image from "next/image";
-
 import formatThousand from "../../../helpers/formatThousand";
 
 export default function RenderItem({ item }) {
@@ -17,7 +16,7 @@ export default function RenderItem({ item }) {
           </h5>
         </div>
         <Link href="#">
-          <a href="" className="link-wrapped"></a>
+          <a className="link-wrapped"></a>
         </Link>
       </div>
     </div>

@@ -1,28 +1,32 @@
 import Image from "next/image";
 
-import iconAmazon from "../../public/images/ic-amazon.svg";
-import iconFacebook from "../../public/images/ic-facebook.svg";
-import iconGoogle from "../../public/images/ic-google.svg";
-import iconMicrosoft from "../../public/images/ic-microsoft.svg";
-import iconTesla from "../../public/images/ic-tesla.svg";
+import iconAmazon from "../../public/images/ic-clients/ic-amazon.svg";
+import iconFacebook from "../../public/images/ic-clients/ic-facebook.svg";
+import iconGoogle from "../../public/images/ic-clients/ic-google.svg";
+import iconMicrosoft from "../../public/images/ic-clients/ic-microsoft.svg";
+import iconTesla from "../../public/images/ic-clients/ic-tesla.svg";
 
 export default function Clients() {
   return (
-    <div className="flex justify-center items-center">
+    <div className="container mx-auto pt-28 flex justify-center items-center">
       <div className="w-1/6">
-        <Image src={iconAmazon} className="mx-auto" />
+        <Image src={iconAmazon} alt="company-amazon" className="mx-auto" />
       </div>
       <div className="w-1/6">
-        <Image src={iconFacebook} className="mx-auto" />
+        <Image src={iconFacebook} alt="company-facebook" className="mx-auto" />
       </div>
       <div className="w-1/6">
-        <Image src={iconGoogle} className="mx-auto" />
+        <Image src={iconGoogle} alt="company-google" className="mx-auto" />
       </div>
       <div className="w-1/6">
-        <Image src={iconMicrosoft} className="mx-auto" />
+        <Image
+          src={iconMicrosoft}
+          alt="company-microsoft"
+          className="mx-auto"
+        />
       </div>
       <div className="w-1/6">
-        <Image src={iconTesla} className="mx-auto" />
+        <Image src={iconTesla} alt="company-tesla" className="mx-auto" />
       </div>
     </div>
   );
