@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Link from "next/Link";
+import Link from "next/link";
 import FormEmail from "./FormEmail";
 
 export default function Footer() {

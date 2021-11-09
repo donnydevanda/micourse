@@ -1,4 +1,4 @@
-import Link from "next/Link";
+import Link from "next/link";
 import Image from "next/image";
 import IconPlay from "../../../public/images/ic-play.svg";
 import formatThousand from "../../../helpers/formatThousand";
