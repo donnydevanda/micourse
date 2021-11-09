@@ -24,7 +24,7 @@ export default function RenderItem({ item }) {
             <h5 className="text-sm my-1 text-gray-600">
               {`Rp.${formatThousand(item?.price) ?? "Course price"}`}
             </h5>
-            <Link href={`/course/${item.id}`}>View</Link>
+            <Link href={`/course/${item?.id}`}>View</Link>
           </div>
         </div>
       </div>
