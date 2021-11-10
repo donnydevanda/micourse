@@ -1,14 +1,13 @@
 import Head from "next/head";
-import axios from "axios";
-
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import Clients from "./components/Clients";
 import ListCourses from "./components/ListCourses";
 import ListCategories from "./components/ListCategories";
 import Footer from "./components/Footer";
+import coursesAPI from "../api/courses";
 
-function Home({ data }) {
+function Index({ data }) {
   return (
     <>
       <Head>
@@ -29,15 +28,13 @@ function Home({ data }) {
   );
 }
 
-Home.getInitialProps = async () => {
+Index.getInitialProps = async () => {
   try {
-    const data = await axios.get(
-      "https://micourse-api-gateway.herokuapp.com/courses"
-    );
-    return { data: data.data.data };
+    const data = await coursesAPI.all();
+    return { data: data.data };
   } catch (error) {
     return error;
   }
 };
 
-export default Home;
+export default Index;
