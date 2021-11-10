@@ -2,7 +2,6 @@ import Link from "next/link";
 import RenderItem from "./RenderItem";
 
 export default function listCourses({ data }) {
-  console.log(data?.length);
   return (
     <div className="container mx-auto pt-24">
       <div className="flex justify-between item-center">
