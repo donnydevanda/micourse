@@ -1,15 +1,34 @@
+import { useEffect, useRef, useState } from "react";
 import Head from "next/head";
 import Youtube from "react-youtube";
 import coursesAPI from "../api/courses";
 import { CSSTransition } from "react-transition-group";
 import Header from "./components/Header";
 import Feature from "./components/Details/Feature";
+import Footer from "./components/Footer";
 import IconStudent from "../public/images/ic-details/ic-student.svg";
 import IconVideo from "../public/images/ic-details/ic-video.svg";
 import IconCertificate from "../public/images/ic-details/ic-Certificate.svg";
 import formatThousand from "../helpers/formatThousand";
 
 function Details({ data }) {
+  const footer = useRef(null);
+
+  const [isSticky, setisSticky] = useState(() => true);
+
+  useEffect(() => {
+    const stickyOffsetTop = footer.current.getBoundingClientRect().top;
+
+    const stickyMetaToggler = () => {
+      setisSticky(stickyOffsetTop >= window.pageYOffset + window.innerHeight);
+    };
+
+    window.addEventListener("scroll", stickyMetaToggler);
+    return () => {
+      window.removeEventListener("scroll", stickyMetaToggler);
+    };
+  }, []);
+
   return (
     <>
       <Head>
@@ -77,32 +96,61 @@ function Details({ data }) {
         </div>
         <div>
           <CSSTransition
-            // in={isSticky}
+            in={isSticky}
             timeout={300}
-            className="meta=price"
+            classNames="meta-price"
             unmountOnExit
           >
-            <div className="meta-price w-full bg-white z-50 left-0 py-3">
-              <div className="w-3/4 mx-auto">
+            <div className="meta-price w-full bg-white z-10 left-0 md:py-5">
+              <div className="w-full md:w-3/4 md:mx-auto">
                 <div className="flex items-center">
-                  <div className="w-full">
-                    <h2 className="text-gray-600">Class Name</h2>
-                    <h3 className="text-2xl text-gray-900">
-                      {data.name ?? "Class Name"}
+                  <div className="w-full ml-2 md:mx-auto">
+                    <h2 className="text-gray-600 text-xs md:text-base">
+                      Nama Kelas
+                    </h2>
+                    <h3 className="text-base md:text-2xl text-gray-900">
+                      {data?.name ?? "Class Name"}
                     </h3>
-                    <h5 className="text-2xl text-teal-500 whitespace-no-wrap mr-4">
-                      {data?.type === "free" ? (
-                        "Free"
-                      ) : (
-                        <span>Rp.{formatThousand(data?.price ?? 0)}</span>
-                      )}
-                    </h5>
                   </div>
+                  <h5 className="text-base md:text-2xl text-teal-500 whitespace-no-wrap mr-4">
+                    {data?.type === "free" ? (
+                      "Free"
+                    ) : (
+                      <span>Rp.{formatThousand(data?.price ?? 0)}</span>
+                    )}
+                  </h5>
+                  <a
+                    href={`${process.env.NEXT_PUBLIC_MEMBERPAGE_URL}/joined/${data.id}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-yellow-500 hover:bg-yellow-600 transition-all  duration-200 focus:outline-none shadow-inner text-white px-12 py-3 whitespace-no-wrap"
+                  >
+                    {data?.type === "free" ? "Enroll" : "Buy"}
+                  </a>
                 </div>
               </div>
             </div>
           </CSSTransition>
         </div>
+
+        <div className="w-3/4 mx-auto mt-8">
+          <div className="w-3/4">
+            <section>
+              <h6 className="font-medium text-gray-900 text-2xl mb-4">
+                About <span className="text-blue-500">Courses</span>
+                <p className="text-gray-500 text-lg leading-relax mb-3">
+                  {data?.description ?? "Class Description not Found"}
+                </p>
+              </h6>
+            </section>
+          </div>
+        </div>
+      </section>
+
+      <section style={{ height: 2000 }}></section>
+
+      <section ref={footer}>
+        <Footer></Footer>
       </section>
     </>
   );
