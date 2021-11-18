@@ -5,6 +5,7 @@ import coursesAPI from "../api/courses";
 import { CSSTransition } from "react-transition-group";
 import Header from "./components/Header";
 import Feature from "./components/Details/Feature";
+import CoursePhoto from "./components/Details/CoursePhoto";
 import Footer from "./components/Footer";
 import IconStudent from "../public/images/ic-details/ic-student.svg";
 import IconVideo from "../public/images/ic-details/ic-video.svg";
@@ -138,10 +139,24 @@ function Details({ data }) {
             <section>
               <h6 className="font-medium text-gray-900 text-2xl mb-4">
                 About <span className="text-blue-500">Courses</span>
-                <p className="text-gray-500 text-lg leading-relax mb-3">
-                  {data?.description ?? "Class Description not Found"}
-                </p>
               </h6>
+              <p className="text-gray-500 text-lg leading-relax mb-3">
+                {data?.description ?? "Class Description not Found"}
+              </p>
+            </section>
+            <section className="mt-10">
+              <h6 className="font-medium text-gray-900 text-2xl mb-4">
+                Course <span className="text-blue-500">Photos</span>
+              </h6>
+              <div className="flex justify-start items-center -mx-4 mt-6">
+                {data?.images?.length > 0 ? (
+                  data?.images?.map?.((photo, index) => (
+                    <CoursePhoto data={photo.image} key={index} />
+                  ))
+                ) : (
+                  <div className="w-full">No Item Found</div>
+                )}
+              </div>
             </section>
           </div>
         </div>
