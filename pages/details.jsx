@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import Head from "next/head";
 import Youtube from "react-youtube";
 import coursesAPI from "../api/courses";
@@ -7,6 +8,7 @@ import Header from "./components/Header";
 import Feature from "./components/Details/Feature";
 import CoursePhoto from "./components/Details/CoursePhoto";
 import RenderPreview from "./components/Details/RenderPreview";
+import HappyStudent from "./components/HappyStudent";
 import Footer from "./components/Footer";
 import IconStudent from "../public/images/ic-details/ic-student.svg";
 import IconVideo from "../public/images/ic-details/ic-video.svg";
@@ -168,6 +170,34 @@ function Details({ data }) {
               ) : (
                 <div className="w-full text-center py-12">No Chapter Found</div>
               )}
+            </section>
+            <section className="mt-10 w-2/3">
+              <h6 className="font-medium text-gray-900 text-2xl mb-4">
+                Our <span className="text-blue-500">Instructors</span>
+              </h6>
+              <div className="flex item-center">
+                <img
+                  src={data?.mentor?.profile ?? ""}
+                  alt={data?.mentor?.name}
+                  className="w-20 h-20 rounded-full overflow-hidden object-cover"
+                />
+                <div className="ml-4">
+                  <h2 className="text-large text-gray-900">
+                    {data?.mentor?.name ?? "Mentor Name"}
+                  </h2>
+                  <h3 className="text-small text-gray-600">
+                    {data?.mentor?.profession}
+                  </h3>
+                </div>
+              </div>
+            </section>
+            <section className="mt-10 w-6/12">
+              <h6 className="font-medium text-gray-900 text-2xl mb-4">
+                Happy <span className="text-blue-500">Students</span>
+              </h6>
+              {data.reviews?.map?.((testimonial, index) => {
+                return <HappyStudent key={index} data={testimonial} />;
+              })}
             </section>
           </div>
         </div>
