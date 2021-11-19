@@ -6,6 +6,7 @@ import { CSSTransition } from "react-transition-group";
 import Header from "./components/Header";
 import Feature from "./components/Details/Feature";
 import CoursePhoto from "./components/Details/CoursePhoto";
+import RenderPreview from "./components/Details/RenderPreview";
 import Footer from "./components/Footer";
 import IconStudent from "../public/images/ic-details/ic-student.svg";
 import IconVideo from "../public/images/ic-details/ic-video.svg";
@@ -157,6 +158,16 @@ function Details({ data }) {
                   <div className="w-full">No Item Found</div>
                 )}
               </div>
+            </section>
+            <section className="mt-10">
+              <h6 className="font-medium text-gray-900 text-2xl mb-4">
+                You Will <span className="text-blue-500">Learn</span>
+              </h6>
+              {data?.chapters.length > 0 ? (
+                <RenderPreview previews={data.chapters}></RenderPreview>
+              ) : (
+                <div className="w-full text-center py-12">No Chapter Found</div>
+              )}
             </section>
           </div>
         </div>
