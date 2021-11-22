@@ -1,7 +1,7 @@
 import Link from "next/link";
 import RenderItem from "./RenderItem";
 
-export default function listCourses({ data }) {
+export default function ListCourses({ data }) {
   return (
     <div className="container mx-auto pt-24">
       <div className="flex justify-between item-center">
