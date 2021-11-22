@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export { default as Item } from "./item";
+export { default as Item } from "./Item";
 
 export { default as IconPlay } from "../../../public/images/ic-play.svg";
 export { default as IconLock } from "../../../public/images/ic-lock.svg";

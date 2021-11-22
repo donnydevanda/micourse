@@ -12,7 +12,7 @@ import HappyStudent from "./components/HappyStudent";
 import Footer from "./components/Footer";
 import IconStudent from "../public/images/ic-details/ic-student.svg";
 import IconVideo from "../public/images/ic-details/ic-video.svg";
-import IconCertificate from "../public/images/ic-details/ic-Certificate.svg";
+import IconCertificate from "../public/images/ic-details/ic-certificate.svg";
 import formatThousand from "../helpers/formatThousand";
 
 function Details({ data }) {
