@@ -1,10 +1,10 @@
 import Head from "next/head";
-import Header from "./components/Header";
-import Hero from "./components/Hero";
-import Clients from "./components/Clients";
-import ListCourses from "./components/ListCourses";
-import ListCategories from "./components/ListCategories";
-import Footer from "./components/Footer";
+import Header from "../components/Header";
+import Hero from "../components/Hero";
+import Clients from "../components/Clients";
+import ListCourses from "../components/ListCourses";
+import ListCategories from "../components/ListCategories";
+import Footer from "../components/Footer";
 import coursesAPI from "../api/courses";
 
 function Index({ data }) {

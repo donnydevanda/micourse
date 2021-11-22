@@ -3,7 +3,7 @@ import { useState } from "react";
 
 import { CSSTransition } from "react-transition-group";
 
-import IconDown from "../../../public/images/ic-down.svg";
+import IconDown from "../../public/images/ic-down.svg";
 
 export default function Item({ name, id, child, active, toggle, children }) {
   const [Height, setHeight] = useState(() => 0);

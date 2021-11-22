@@ -2,7 +2,7 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import Logo from "../../public/images/logo.svg";
+import Logo from "../public/images/logo.svg";
 
 export default function Header({ onLight }) {
   const [ToggleMenu, setToggleMenu] = useState(false);

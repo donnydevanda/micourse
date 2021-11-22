@@ -1,6 +1,6 @@
 import Image from "next/image";
 import FormEmail from "./FormEmail";
-import imgHero from "../../public/images/img-hero.jpg";
+import imgHero from "../public/images/img-hero.jpg";
 
 export default function Hero() {
   return (

@@ -1,9 +1,9 @@
 import Image from "next/image";
-import IconAmazon from "../../public/images/ic-clients/ic-amazon.svg";
-import IconFacebook from "../../public/images/ic-clients/ic-facebook.svg";
-import IconGoogle from "../../public/images/ic-clients/ic-google.svg";
-import IconMicrosoft from "../../public/images/ic-clients/ic-microsoft.svg";
-import IconTesla from "../../public/images/ic-clients/ic-tesla.svg";
+import IconAmazon from "../public/images/ic-clients/ic-amazon.svg";
+import IconFacebook from "../public/images/ic-clients/ic-facebook.svg";
+import IconGoogle from "../public/images/ic-clients/ic-google.svg";
+import IconMicrosoft from "../public/images/ic-clients/ic-microsoft.svg";
+import IconTesla from "../public/images/ic-clients/ic-tesla.svg";
 
 export default function Clients() {
   return (

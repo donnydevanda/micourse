@@ -1,5 +1,5 @@
 import React from "react";
-import IconPreview from "../../../public/images/ic-preview.svg";
+import IconPreview from "../../public/images/ic-preview.svg";
 import Modal from "../Modal";
 
 export default function CoursePhoto({ data }) {

@@ -4,9 +4,9 @@ import Link from "next/link";
 
 import coursesAPI from "../api/courses";
 
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import ListCourses from "./components/ListCourses";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import ListCourses from "../components/ListCourses";
 
 function Courses({ data }) {
   const [Search, setSearch] = useState(() => "");

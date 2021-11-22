@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import formatThousand from "../../../helpers/formatThousand";
+import formatThousand from "../../helpers/formatThousand";
 
 export default function RenderItem({ item }) {
   return (

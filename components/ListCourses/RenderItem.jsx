@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
-import formatThousand from "../../../helpers/formatThousand";
-import IconPlay from "../../../public/images/ic-play.svg";
+import formatThousand from "../../helpers/formatThousand";
+import IconPlay from "../../public/images/ic-play.svg";
 
 export default function RenderItem({ item }) {
   return (

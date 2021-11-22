@@ -1,5 +1,5 @@
 import Image from "next/image";
-import formatThousand from "../../../helpers/formatThousand";
+import formatThousand from "../../helpers/formatThousand";
 
 export default function Feature(props) {
   return (
