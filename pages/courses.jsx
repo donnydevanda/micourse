@@ -1,9 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import Head from "next/head";
 import Link from "next/link";
-
 import coursesAPI from "../api/courses";
-
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import ListCourses from "../components/ListCourses";
@@ -26,6 +24,7 @@ function Courses({ data }) {
   }
 
   let timeoutSearch = useRef(null);
+
   function handleSearch(e) {
     e.persist();
     setSearch(e.target.value);
@@ -69,19 +68,13 @@ function Courses({ data }) {
       </Head>
 
       <section className="pt-10 z-30 relative" style={{ height: 360 }}>
-        <div className="absolute inset-0 z-0 w-full h-full bg-black opacity-75"></div>
-        <div
-          className="meta-title absolute bottom-0 object-fill z-0 w-full flex justify-center items-center"
-          style={{ marginBottom: "-25px" }}
-        >
+        <div className="absolute inset-0 z-0 w-full h-full bg-indigo-900" />
+        <div className="absolute bottom-0 -mb-6 object-fill z-0 w-full flex justify-center items-center">
           <div className="px-4">
-            <h3 className="text-6xl text-center text-teal-500 font-semibold">
-              Library
-            </h3>
-            <h4 className="text-lg text-center text-white">
-              Jangan mau kalah update dengan yang lainnya. <br /> Yuk ikuti
-              perkembangan teknologi.
-            </h4>
+            <h1 className="text-6xl text-center text-white  my-4">Explore</h1>
+            <h2 className="text-lg text-center text-white">
+              Find Thousand of Courses from Many Experts.
+            </h2>
             <div className="flex flex-col relative" ref={selectWrapper}>
               <input
                 id="q"
@@ -92,10 +85,10 @@ function Courses({ data }) {
                 value={Search}
                 placeholder={
                   SearchFocus
-                    ? "Ketik minimal 3 karakter untuk mencari"
-                    : "Lagi nyari kelas apa?"
+                    ? "Type Minimum of 3 Words"
+                    : "Find Something Here ..."
                 }
-                className="bg-white focus:outline-none transition-all duration-200 focus:border-teal-500 border border-gray-600 px-4 py-3 w-full mt-6"
+                className="bg-white focus:outline-none transition-all duration-200 focus:border-blue-500 border border-gray-400 px-4 py-3 w-full mt-6"
               />
               {Search.length >= 3 && (
                 <div
@@ -106,8 +99,7 @@ function Courses({ data }) {
                     "Loading..."
                   ) : (
                     <>
-                      {SearchResponse.isError &&
-                        "Something is technically wrong"}
+                      {SearchResponse.isError && "Something is Wrong"}
                       {SearchResponse.data?.length > 0
                         ? SearchResponse.data?.map?.((item, index) => {
                             return (
@@ -125,11 +117,11 @@ function Courses({ data }) {
                                   />
                                 </div>
                                 <div className="w-full px-4">
-                                  <h6 className="text-gray-900 text-lg">
+                                  <h3 className="text-gray-900 text-lg">
                                     {item?.name ?? "Course Name"}
-                                  </h6>
+                                  </h3>
                                   <p className="text-gray-600">
-                                    {item?.level ?? "level"}
+                                    {item?.level ?? "Course Level"}
                                   </p>
                                   <Link
                                     href="/courses/[id]"
@@ -149,18 +141,10 @@ function Courses({ data }) {
             </div>
           </div>
         </div>
-
-        <div className="container px-4 mx-auto z-10 relative">
-          <Header></Header>
-        </div>
+        <Header />
       </section>
-
-      <section className="container px-4 mx-auto pt-24">
-        <ListCourses data={data}></ListCourses>
-      </section>
-      <section className="mt-24 bg-indigo-1000 py-12">
-        <Footer></Footer>
-      </section>
+      <ListCourses data={data} />
+      <Footer />
     </>
   );
 }

@@ -2,18 +2,18 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Head from "next/head";
 import Youtube from "react-youtube";
-import coursesAPI from "../api/courses";
+import coursesAPI from "../../api/courses";
 import { CSSTransition } from "react-transition-group";
-import Header from "../components/Header";
-import Feature from "../components/Details/Feature";
-import CoursePhoto from "../components/Details/CoursePhoto";
-import RenderPreview from "../components/Details/RenderPreview";
-import HappyStudent from "../components/HappyStudent";
-import Footer from "../components/Footer";
-import IconStudent from "../public/images/ic-details/ic-student.svg";
-import IconVideo from "../public/images/ic-details/ic-video.svg";
-import IconCertificate from "../public/images/ic-details/ic-certificate.svg";
-import formatThousand from "../helpers/formatThousand";
+import Header from "../../components/Header";
+import Feature from "../../components/Details/Feature";
+import CoursePhoto from "../../components/Details/CoursePhoto";
+import RenderPreview from "../../components/Details/RenderPreview";
+import HappyStudent from "../../components/HappyStudent";
+import Footer from "../../components/Footer";
+import IconStudent from "../../public/images/ic-details/ic-student.svg";
+import IconVideo from "../../public/images/ic-details/ic-video.svg";
+import IconCertificate from "../../public/images/ic-details/ic-certificate.svg";
+import formatThousand from "../../helpers/formatThousand";
 
 function Details({ data }) {
   const footer = useRef(null);
@@ -83,17 +83,17 @@ function Details({ data }) {
               <Feature
                 icon={IconStudent}
                 meta="Student"
-                value={data.total_students}
+                value={data?.total_students}
               />
               <Feature
                 icon={IconVideo}
                 meta="Video"
-                value={data.total_videos}
+                value={data?.total_videos}
               />
               <Feature
                 icon={IconCertificate}
                 meta="Certificate"
-                value={data.certificate ? "Available" : "-"}
+                value={data?.certificate ? "Available" : "-"}
               />
             </div>
           </div>
@@ -124,7 +124,7 @@ function Details({ data }) {
                     )}
                   </h5>
                   <a
-                    href={`${process.env.NEXT_PUBLIC_MEMBERPAGE_URL}/joined/${data.id}`}
+                    href={`${process.env.NEXT_PUBLIC_MEMBERPAGE_URL}/joined/${data?.id}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="bg-yellow-500 hover:bg-yellow-600 transition-all  duration-200 focus:outline-none shadow-inner text-white px-12 py-3 whitespace-no-wrap"
@@ -195,7 +195,7 @@ function Details({ data }) {
               <h6 className="font-medium text-gray-900 text-2xl mb-4">
                 Happy <span className="text-blue-500">Students</span>
               </h6>
-              {data.reviews?.map?.((testimonial, index) => {
+              {data?.reviews?.map?.((testimonial, index) => {
                 return <HappyStudent key={index} data={testimonial} />;
               })}
             </section>
@@ -213,9 +213,8 @@ function Details({ data }) {
 }
 
 Details.getInitialProps = async (props) => {
-  // const { id } = props;
   try {
-    const data = await coursesAPI.details(1);
+    const data = await coursesAPI.details(props.query.id);
     return { data: data };
   } catch (error) {
     return error;
