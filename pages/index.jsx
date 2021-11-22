@@ -15,7 +15,6 @@ function Index({ data }) {
       </Head>
       <main>
         <section className="header-clipping pt-10 min-h-screen md:min-h-0">
-          <div className="sunshine max-w-full" />
           <Header />
           <Hero />
         </section>

@@ -4,6 +4,63 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Index - Header Clipping */
+.header-clipping,
+.header-clipping .container {
+  @apply relative;
+}
+
+.header-clipping::before {
+  @apply w-full bg-indigo-800 inset-0 absolute;
+  content: "";
+  height: 648px;
+  clip-path: polygon(0 0, 100% 0, 100% 86%, 0% 100%);
+}
+
+/* Component - Header */
+.toggle {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  z-index: 9999;
+}
+
+.toggle:focus {
+  outline: none;
+}
+
+.toggle:before,
+.toggle:after {
+  @apply right-0 absolute bg-gray-200 transition-all duration-200;
+  content: "";
+  height: 3px;
+  transform-origin: center;
+}
+
+.toggle:before {
+  top: 26%;
+  width: 20px;
+}
+
+.toggle:after {
+  top: 58%;
+  width: 12px;
+}
+
+.toggle.active:before,
+.toggle.active:after {
+  width: 20px;
+  top: 50%;
+}
+
+.toggle.active:before {
+  transform: translateY(-50%) rotate(-45deg);
+}
+
+.toggle.active:after {
+  transform: translateY(-50%) rotate(45deg);
+}
+
 .modal-close {
   @apply absolute right-0 cursor-pointer inline-block;
   width: 30px;
@@ -96,33 +153,6 @@
 .link-wrapped::before {
   @apply cursor-pointer z-10 inset-0 absolute;
   content: "";
-}
-
-.header-clipping {
-  @apply relative;
-}
-
-.header-clipping .container {
-  @apply relative;
-  z-index: 3;
-}
-
-.header-clipping .sunshine {
-  @apply absolute top-0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 515px;
-  height: 95%;
-  opacity: 0.8;
-  clip-path: polygon(46% 0%, 82% 0%, 67% 100%, 0% 100%);
-  background: transparent linear-gradient(130.09deg, #3d47bd 0%, #2e37a4 50.8%);
-}
-
-.header-clipping::before {
-  @apply w-full bg-indigo-800 inset-0 absolute;
-  content: "";
-  height: 648px;
-  clip-path: polygon(0 0, 100% 0, 100% 86%, 0% 100%);
 }
 
 .card {

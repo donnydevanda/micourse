@@ -4,9 +4,9 @@ import FormEmail from "./FormEmail";
 
 export default function Footer() {
   return (
-    <footer className=" bg-indigo-900 mt-24 py-12">
-      <div className="container mx-auto flex justify-between">
-        <div className="w-1/6">
+    <footer className=" bg-indigo-900 mt-24 px-4 py-12">
+      <div className="container mx-auto flex flex-wrap justify-between">
+        <div className="w-full md:w-1/6 mb-8 md:mb-0">
           <h6 className="text-white">Company</h6>
           <ul className="mt-4">
             <li className="mt-2">
@@ -39,7 +39,7 @@ export default function Footer() {
             </li>
           </ul>
         </div>
-        <div className="w-1/6">
+        <div className="w-full md:w-1/6 mb-8 md:mb-0">
           <h6 className="text-white">Student</h6>
           <ul className="mt-4">
             <li className="mt-2">
@@ -72,7 +72,7 @@ export default function Footer() {
             </li>
           </ul>
         </div>
-        <div className="w-1/6">
+        <div className="w-full md:w-1/6 mb-8 md:mb-0">
           <h6 className="text-white">Our Address</h6>
           <p className="mt-4 text-gray-400 leading-loose">
             Micourse HQ <br />
@@ -81,15 +81,15 @@ export default function Footer() {
             12630
           </p>
         </div>
-        <div className="w-2/6">
+        <div className="w-full md:w-2/6 mb-8 md:mb-0">
           <h6 className="text-white">Touch Us</h6>
           <p className="my-2 text-gray-400">
-            Submit your email for special offers
+            Submit your email to get special offers
           </p>
           <FormEmail />
         </div>
       </div>
-      <div className="border-t pt-8 mt-8 border-gray-800 text-center text-lg">
+      <div className="border-t pt-10 mt-8 -mb-2 border-gray-800 text-center text-lg">
         <p className="text-gray-400">Micourse • All Right Reserved • 2021</p>
       </div>
     </footer>
