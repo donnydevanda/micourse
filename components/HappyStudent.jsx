@@ -2,11 +2,11 @@ import Star from "./Star";
 
 export default function HappyStudent({ data }) {
   return (
-    <div className="mt-8">
-      <Star value={data?.rating ?? 0} width={26} height={26}></Star>
-      <p className="text-gray-600 mt-1">{data?.note ?? "Students Comment"}</p>
-      <div className="flex items-center mt-4">
-        <div className="">
+    <div className="my-6">
+      <Star value={data?.rating ?? 0} width={26} height={26} />
+      <p className="text-gray-600">{data?.note ?? "Students Comment"}</p>
+      <div className="flex items-center mt-2 my-auto">
+        <div>
           <img
             src={data?.users?.avatar ?? ""}
             alt={data?.users?.name ?? "Student Name"}

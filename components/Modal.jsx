@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import propTypes from "prop-types";
 import { createPortal } from "react-dom";
-
 import { CSSTransition } from "react-transition-group";
 
 export default function Modal(props) {
@@ -72,7 +71,7 @@ export default function Modal(props) {
               unmountOnExit
             >
               <div className="overlay fixed inset-0 h-screen z-50">
-                <div className="bg-black opacity-25 inset-0 absolute z-10"></div>
+                <div className="bg-black opacity-25 inset-0 absolute z-10" />
                 <div className="absolute z-20 flex items-center justify-center inset-0">
                   <div
                     style={props.modalStyle}
@@ -80,9 +79,8 @@ export default function Modal(props) {
                     className="bg-white shadow-2xl w-full md:w-auto max-h-2xl md:max-w-3xl "
                   >
                     <div className="relative">
-                      <span className="modal-close" onClick={toggle}></span>
+                      <span className="modal-close" onClick={toggle} />
                     </div>
-
                     {props.content(toggle)}
                   </div>
                 </div>

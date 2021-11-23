@@ -1,33 +1,12 @@
-import React, { useEffect } from "react";
-
+import Image from "next/image";
 import propTypes from "prop-types";
-
 import IconStar from "../../public/images/ic-star.svg";
 
 export default function Star({ className, value, height, width }) {
   const star = [];
-  let leftPos = 0;
 
   for (let index = 0; index < 5 && index < value; index++) {
-    leftPos = leftPos + width;
-    star.push(
-      <div
-        className="star"
-        key={`star-${index}`}
-        style={{ left: index * width, height: height, width: width }}
-      />
-    );
-  }
-
-  const starPlaceholder = [];
-  for (let index = 0; index < 5; index++) {
-    starPlaceholder.push(
-      <div
-        className="star placeholder"
-        key={`starPlaceholder-${index}`}
-        style={{ left: index * width, height: height, width: width }}
-      />
-    );
+    star.push(<Image src={IconStar} width={width} height={height} />);
   }
 
   return (
@@ -36,10 +15,8 @@ export default function Star({ className, value, height, width }) {
         className={["stars", className].join(" ")}
         style={{ height: height }}
       >
-        {starPlaceholder}
         {star}
       </div>
-      <IconStar></IconStar>
     </>
   );
 }

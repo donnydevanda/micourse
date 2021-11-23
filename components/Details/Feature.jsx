@@ -3,7 +3,10 @@ import formatThousand from "../../helpers/formatThousand";
 
 export default function Feature(props) {
   return (
-    <div className="border border-gray-300 bg-white p-6" style={{ width: 290 }}>
+    <div
+      className="border border-gray-300 bg-white p-6 w-full md:w-1/3"
+      style={{ width: 290 }}
+    >
       <div className="flex">
         <div className="w-auto">
           <Image src={props.icon} />

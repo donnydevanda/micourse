@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
 import Head from "next/head";
 import Youtube from "react-youtube";
 import coursesAPI from "../../api/courses";
@@ -38,13 +37,15 @@ function Details({ data }) {
       <Head>
         <title>Micourse - Details</title>
       </Head>
+
       <section
-        className="pt-10 relative overflow-hidden"
+        className="px-4 pt-10 relative overflow-hidden"
         style={{ height: 660 }}
       >
         {data?.chapters?.[0]?.lessons?.[0]?.video && (
-          <div className="video-wrapper">
+          <div className="video-wrapper min-h-screen md:min-w-full">
             <Youtube
+              className="w-full"
               videoId={data?.chapters?.[0]?.lessons?.[0]?.video}
               id={data?.chapters?.[0]?.lessons?.[0]?.video}
               opts={{
@@ -66,20 +67,20 @@ function Details({ data }) {
         <div className="meta-title absolute inset-0 object-fill z-0 w-full flex justify-center items-center">
           <div className="text-center">
             <h3 className="text-lg text-white">Online Course</h3>
-            <h4 className="text-6xl text-blue-500 font-semibold">
+            <h4 className="text-3xl md:text-6xl text-blue-500 font-semibold">
               {data?.name ?? "Class Name"}
             </h4>
           </div>
         </div>
-        <div className="container mx-auto z-10 relative">
-          <Header></Header>
+        <div className="z-20 relative">
+          <Header />
         </div>
       </section>
 
       <section className="container mx-auto pt-24 relative">
-        <div className="absolute top-0 w-full transform -translate-y-1/2">
+        <div className="md:absolute top-0 w-full transform md:-translate-y-1/2">
           <div className="w-3/4 mx-auto">
-            <div className="flex justify-between">
+            <div className="flex flex-wrap justify-between">
               <Feature
                 icon={IconStudent}
                 meta="Student"
@@ -110,13 +111,13 @@ function Details({ data }) {
                 <div className="flex items-center">
                   <div className="w-full ml-2 md:mx-auto">
                     <h2 className="text-gray-600 text-xs md:text-base">
-                      Nama Kelas
+                      Course Name
                     </h2>
                     <h3 className="text-base md:text-2xl text-gray-900">
                       {data?.name ?? "Class Name"}
                     </h3>
                   </div>
-                  <h5 className="text-base md:text-2xl text-teal-500 whitespace-no-wrap mr-4">
+                  <h5 className="text-base md:text-2xl text-teal-500 whitespace-nowrap mr-4">
                     {data?.type === "free" ? (
                       "Free"
                     ) : (
@@ -138,40 +139,43 @@ function Details({ data }) {
         </div>
 
         <div className="w-3/4 mx-auto mt-8">
-          <div className="w-3/4">
+          <div className="w-full md:w-3/4">
             <section>
               <h6 className="font-medium text-gray-900 text-2xl mb-4">
                 About <span className="text-blue-500">Courses</span>
               </h6>
-              <p className="text-gray-500 text-lg leading-relax mb-3">
-                {data?.description ?? "Class Description not Found"}
+              <p className="text-gray-500 text-base md:text-lg leading-relax mb-3">
+                {data?.description ?? "Class Description Not Found"}
               </p>
             </section>
+
             <section className="mt-10">
               <h6 className="font-medium text-gray-900 text-2xl mb-4">
                 Course <span className="text-blue-500">Photos</span>
               </h6>
-              <div className="flex justify-start items-center -mx-4 mt-6">
+              <div className="flex flex-wrap justify-start items-center -mx-4 mt-6">
                 {data?.images?.length > 0 ? (
                   data?.images?.map?.((photo, index) => (
                     <CoursePhoto data={photo.image} key={index} />
                   ))
                 ) : (
-                  <div className="w-full">No Item Found</div>
+                  <div className="w-full px-4">No Image Found</div>
                 )}
               </div>
             </section>
+
             <section className="mt-10">
               <h6 className="font-medium text-gray-900 text-2xl mb-4">
                 You Will <span className="text-blue-500">Learn</span>
               </h6>
               {data?.chapters.length > 0 ? (
-                <RenderPreview previews={data.chapters}></RenderPreview>
+                <RenderPreview previews={data.chapters} />
               ) : (
                 <div className="w-full text-center py-12">No Chapter Found</div>
               )}
             </section>
-            <section className="mt-10 w-2/3">
+
+            <section className="mt-10 w-full md:w-2/3">
               <h6 className="font-medium text-gray-900 text-2xl mb-4">
                 Our <span className="text-blue-500">Instructors</span>
               </h6>
@@ -181,7 +185,7 @@ function Details({ data }) {
                   alt={data?.mentor?.name}
                   className="w-20 h-20 rounded-full overflow-hidden object-cover"
                 />
-                <div className="ml-4">
+                <div className="ml-4 my-auto">
                   <h2 className="text-large text-gray-900">
                     {data?.mentor?.name ?? "Mentor Name"}
                   </h2>
@@ -191,8 +195,9 @@ function Details({ data }) {
                 </div>
               </div>
             </section>
-            <section className="mt-10 w-6/12">
-              <h6 className="font-medium text-gray-900 text-2xl mb-4">
+
+            <section className="mt-10 w-full md:w-6/12">
+              <h6 className="font-medium text-gray-900 text-2xl">
                 Happy <span className="text-blue-500">Students</span>
               </h6>
               {data?.reviews?.map?.((testimonial, index) => {
@@ -203,10 +208,8 @@ function Details({ data }) {
         </div>
       </section>
 
-      <section style={{ height: 2000 }}></section>
-
       <section ref={footer}>
-        <Footer></Footer>
+        <Footer />
       </section>
     </>
   );
