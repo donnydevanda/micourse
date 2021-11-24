@@ -1,10 +1,22 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import Logo from "../public/images/logo.svg";
+import IconAvatar from "../public/images/ic-avatar.svg";
 
 export default function Header({ onLight }) {
+  const [User, setUser] = useState(() => null);
+
+  useEffect(() => {
+    const userCookies =
+      decodeURIComponent(window.document.cookie)
+        ?.split(";")
+        ?.find?.((item) => item.indexOf("MICOURSE:user") > -1)
+        ?.split("=")[1] ?? null;
+    setUser(userCookies ? JSON.parse(userCookies) : null);
+  }, []);
+
   const [ToggleMenu, setToggleMenu] = useState(false);
 
   const linkColor = onLight ? "text-gray-900" : "text-white";
@@ -97,15 +109,46 @@ export default function Header({ onLight }) {
           </Link>
         </li>
         <li className="mt-8 md:mt-0">
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href={linkCTA}
-            className="bg-indigo-700 hover:bg-indigo-900 transition-all duration-200 text-white 
+          {User ? (
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href={linkCTA}
+              className="bg-indigo-800 hover:bg-indigo-900 transition-all duration-200 text-white 
+            hover:text-white text-lg px-6 py-3 ml-6 inline-flex items-center"
+            >
+              <span className="rounded-full overflow-hidden mr-3 -mb-3">
+                {User?.thumbnail ? (
+                  <Image
+                    src={User?.thumbnail}
+                    alt={User.name ?? "Username"}
+                    height="32"
+                    width="32"
+                    className="object-cover w-8 h-8 inline-block"
+                  />
+                ) : (
+                  <Image
+                    src={IconAvatar}
+                    alt={User.name ?? "Username"}
+                    height="32"
+                    width="32"
+                    className="fill-blue-500 w-8 h-8 inline-block"
+                  />
+                )}
+              </span>
+              {User.name}
+            </a>
+          ) : (
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href={linkCTA}
+              className="bg-indigo-700 hover:bg-indigo-900 transition-all duration-200 text-white 
             hover:text-blue-500 text-lg px-6 py-3 ml-6"
-          >
-            {textCTA}
-          </a>
+            >
+              {textCTA}
+            </a>
+          )}
         </li>
       </ul>
     </header>
