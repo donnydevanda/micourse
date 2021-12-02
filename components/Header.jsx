@@ -11,7 +11,7 @@ export default function Header({ onLight }) {
   useEffect(() => {
     const userCookies =
       decodeURIComponent(window.document.cookie)
-        ?.split(";")
+        ?.split("-")
         ?.find?.((item) => item.indexOf("MICOURSE:user") > -1)
         ?.split("=")[1] ?? null;
     setUser(userCookies ? JSON.parse(userCookies) : null);
@@ -117,22 +117,18 @@ export default function Header({ onLight }) {
               className="bg-indigo-800 hover:bg-indigo-900 transition-all duration-200 text-white 
             hover:text-white text-lg px-6 py-3 ml-6 inline-flex items-center"
             >
-              <span className="rounded-full overflow-hidden mr-3 -mb-3">
+              <span className="rounded-full overflow-hidden mr-3 border-2 border-orange-500">
                 {User?.thumbnail ? (
-                  <Image
+                  <img
                     src={User?.thumbnail}
-                    alt={User.name ?? "Username"}
-                    height="32"
-                    width="32"
+                    alt={User?.name ?? "Username"}
                     className="object-cover w-8 h-8 inline-block"
                   />
                 ) : (
-                  <Image
+                  <img
                     src={IconAvatar}
                     alt={User.name ?? "Username"}
-                    height="32"
-                    width="32"
-                    className="fill-blue-500 w-8 h-8 inline-block"
+                    className="fill-indigo-500 w-8 h-8 inline-block"
                   />
                 )}
               </span>
